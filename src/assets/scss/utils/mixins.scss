@@ -1,0 +1,33 @@
+@mixin containerOne() {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@mixin flex-row() {
+  display: flex;
+  flex-direction: row;
+}
+
+@mixin flex-column() {
+  display: flex;
+  flex-direction: column;
+}
+
+@mixin flex-center() {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+@mixin border($width, $color) {
+  border: $width solid $color;
+}
+
+@mixin borderGroup($radius,$width, $color) {
+  border-radius: $radius;
+  @include border($width, $color);
+}
+@mixin container($gap) {
+  @include flex-column;
+  gap: $gap;
+}

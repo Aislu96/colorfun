@@ -1,0 +1,18 @@
+[
+  {
+    "src": "/assets/img/categories/cartoons.png",
+    "text": "Мультфильмы"
+  },
+  {
+    "src": "/assets/img/categories/nature.png",
+    "text": "Природа"
+  },
+  {
+    "src": "/assets/img/categories/videoGames.png",
+    "text": "Видеоигры"
+  },
+  {
+    "src": "/assets/img/categories/animals.png",
+    "text": "Животные"
+  }
+]

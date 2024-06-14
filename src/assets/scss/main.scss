@@ -1,0 +1,505 @@
+@import "utils/vars";
+@import "utils/mixins";
+@import "utils/fonts";
+@import "utils/_reset";
+@import "utils/_normalize";
+@import "utils/_functions";
+
+.index-page {
+  background-color: $colorWhite;
+  color: $colorMainFont;
+  font-family: $mainFont;
+  margin: 0 auto;
+  min-width: 320px;
+  @include flex-column;
+  box-sizing: border-box;
+  position: relative;
+  max-width: 1920px;
+  overflow-x: hidden;
+}
+
+
+/* font */
+h1 {
+  text-transform: uppercase;
+  color: $coloringViolet;
+  font-size: calc(24px + 24 * (100vw - 320px) / 1600);
+  line-height: clamp(24.2px, calc(1.5em + 0.3 * (100vw - 320px) / 1600), 58.51px);
+  font-weight: $fontWeightBold;
+}
+
+.h36 {
+  color: $coloringViolet;
+  font-size: calc(20px + 16 * (100vw - 320px) / 1600);
+  line-height: clamp(29.26px, calc(1.5em + 0.3 * (100vw - 320px) / 1600), 43.57px);
+  font-weight: $fontWeightMedium;
+}
+
+.p19 {
+  font-size: calc(12px + 7 * (100vw - 320px) / 1600);
+  line-height: clamp(14.63px, calc(1.5em + 0.3 * (100vw - 320px) / 1600), 23.16px);
+  font-weight: $fontWeightRegular;
+  text-align: center;
+}
+
+.p20 {
+  font-size: calc(12px + 5 * (100vw - 320px) / 1600);
+  line-height: clamp(14.63px, calc(1.5em + 0.3 * (100vw - 320px) / 1600), 20.72px);
+  font-weight: $fontWeightRegular;
+}
+
+.p12 {
+  font-size: calc(10px + 2 * (100vw - 320px) / 1600);
+  line-height: clamp(12.19px, calc(1.5em + 0.3 * (100vw - 320px) / 1600), 14.63px);
+  font-weight: $fontWeightRegular;
+}
+
+.h20 {
+  font-size: calc(15px + 5 * (100vw - 320px) / 1600);
+  line-height: clamp(18.29px, calc(1.5em + 0.3 * (100vw - 320px) / 1600), 24.38px);
+  font-weight: $fontWeightMedium;
+}
+
+.b1 {
+  font-size: 17px;
+  line-height: 22.1;
+  font-weight: $fontWeightMedium;
+  color: $colorWhite;
+}
+
+.span12 {
+  font-size: 12px;
+  font-weight: $fontWeightLight;
+  line-height: 15.6px;
+  color: $colorMainFont;
+}
+
+/* /font/ */
+
+/* img */
+img {
+  object-fit: contain;
+  width: 100%;
+  height: 100%;
+}
+
+/* /img */
+
+/* grid-container */
+.grid-container {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(4, minmax(150px, 320px));
+  justify-content: center;
+
+  &__group {
+    @include flex-column;
+    align-items: center;
+    gap: 8px;
+    padding: 20px 22px 31px;
+    @include borderGroup(33px, 1px, $colorBorder);
+
+    &:hover {
+      cursor: pointer;
+      @include border(2px, $coloringViolet);
+    }
+
+    &-articles {
+      position: relative;
+      padding: 0 0 37px;
+      @include flex-column;
+      align-items: center;
+      gap: 22px;
+
+      &.hovered {
+        box-shadow: 1px 2px 4px -1px rgba(129, 116, 150, 1);
+        cursor: pointer;
+        border-radius: 40px;
+      }
+    }
+  }
+
+  &__block {
+    @include flex-column;
+    gap: 8px;
+    padding: 0 12px;
+  }
+
+  &__articles {
+    grid-template-columns: repeat(3, minmax(300px, 430px));
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .grid-container {
+    grid-template-columns: repeat(3, minmax(150px, 320px));
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .grid-container {
+    &__articles {
+      grid-template-columns: repeat(2, minmax(300px, 430px));
+    }
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .grid-container {
+    grid-template-columns: repeat(2, minmax(150px, 320px));
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .grid-container {
+    &__articles {
+      @include flex-row;
+    }
+
+    &__group-articles {
+      width: 300px !important;
+      gap: 12px;
+    }
+
+    &__block {
+      gap: 4px;
+      padding-left: 4px;
+      padding-right: 4px;
+    }
+  }
+}
+
+/* /grid-container */
+
+/* coloring-pages */
+.coloring-pages {
+  &__container {
+    position: relative;
+    background-color: $coloringPagesFon;
+    padding: 100px 16% 151px;
+    @include container(40px);
+
+    & img {
+      margin: auto;
+    }
+  }
+}
+
+
+@media screen and (max-width: 500px) {
+  .coloring-pages {
+    &__container {
+      padding: 50px 10px 114px;
+      gap: 20px;
+    }
+  }
+}
+
+/* /coloring-pages */
+
+/* triangle */
+.triangle {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 0;
+  border-left: 50vw solid transparent;
+  border-right: 50vw solid transparent;
+  border-bottom: 50px solid white;
+}
+
+.triangle__two {
+  position: absolute;
+  top: 0; /* Выравниваем по верхнему краю */
+  left: calc(50% - 50vw); /* Прижимаем угол к левому краю */
+  width: 0;
+  height: 0;
+  border-left: 40vw solid transparent;
+  border-right: 40vw solid transparent;
+  border-top: 30px solid white; /* Заменяем border-bottom на border-top */
+}
+
+
+/* /triangle */
+
+/*articles */
+.articles {
+  overflow: hidden;
+
+  &__container {
+    padding: 50px 16% 60px;
+    @include container(10px);
+  }
+
+  & h1 {
+    margin-bottom: 30px;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .articles {
+    &__container {
+      padding-top: 60px;
+      padding-left: 10px;
+      padding-right: 0;
+      @include container(20px);
+    }
+
+    & h1 {
+      margin-bottom: 0;
+    }
+  }
+}
+
+/* /articles */
+
+/* button */
+.button {
+  margin: 0 auto;
+  border-radius: 37px;
+  width: 180px;
+  height: 48px;
+  background-color: $coloringViolet;
+  @include flex-center;
+  padding: 0;
+}
+
+.button__arrow {
+  background-color: $colorWhite;
+  position: absolute;
+  top: 20px;
+  right: 28px;
+  border-radius: 12px;
+  width: 34px;
+  height: 36px;
+
+  & div {
+    background-image: url("/assets/img/arrow.svg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 14px;
+    height: 14px;
+  }
+
+  &:hover {
+    cursor: pointer;
+    background-color: $coloringViolet;
+
+    & div {
+      background-image: url("/assets/img/arrowWhite.svg");
+    }
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .button__arrow {
+    top: 10px;
+    right: 18px;
+  }
+}
+
+/* /button */
+
+.swiper-pagination {
+  display: none;
+}
+
+@media screen and (max-width: 800px) {
+  .pagination {
+    text-align: center;
+    display: block;
+    position: relative;
+  }
+}
+
+.swiper-pagination-bullet {
+  background-color: $colorBorder;
+  width: 8px;
+  height: 8px;
+
+  &-active {
+    background-color: $coloringViolet;
+  }
+}
+
+/* categories */
+.categories {
+  &__container {
+    padding: 0 16% 60px;
+    @include container(40px);
+  }
+
+  &__block {
+    @include flex-column();
+    gap: 20px;
+  }
+
+  &__groups {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(150px, 320px));
+    gap: 10px;
+  }
+
+  &__group {
+    @include flex-column();
+    justify-content: space-between;
+    gap: 12px;
+    background-color: $colorFonCategories;
+    padding: 20px;
+    border-radius: 40px;
+  }
+
+  &__info {
+    @include container(20px);
+    margin-top: 20px;
+  }
+
+  h3 {
+    color: $colorFontCategories;
+  }
+
+  img {
+    border-radius: 20px;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .categories {
+    &__groups {
+      grid-template-columns: repeat(2, minmax(150px, 320px));
+    }
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .categories {
+    &__container {
+      padding-left: 10px;
+      padding-right: 10px;
+      gap: 20px;
+    }
+
+    &__groups {
+      justify-content: center;
+      display: grid;
+      gap: 10px;
+    }
+
+    &__block {
+      gap: 12px;
+    }
+
+    &__group {
+      height: 300px;
+      border-radius: 20px;
+      padding: 8px;
+      gap: 4px;
+    }
+
+    & img {
+      object-fit: cover;
+    }
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .categories__info {
+    display: none;
+  }
+}
+
+/*/categories */
+
+
+/* footer */
+.footer {
+  &__container {
+    position: relative;
+    background-color: $coloringPagesFon;
+    padding: 64px 16% 43px;
+    @include flex-row;
+    justify-content: space-between;
+  }
+
+  &__block {
+    @include flex-row;
+    gap: 48px;
+  }
+
+  &__group {
+    @include flex-column;
+    gap: 12px;
+  }
+
+  & p {
+    width: 70%;
+  }
+
+  &__icon {
+    @include flex-row;
+    gap: 8px;
+    &_active {
+      display: none;
+    }
+  }
+
+  & img {
+    width: 32px;
+    height: 32px;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .footer {
+    &__container {
+      padding-right: 100px;
+      padding-left: 100px;
+    }
+    & p {
+      width: 50%;
+    }
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .footer {
+    &__container {
+      padding: 87px 10px 46px;
+    }
+
+    &__block {
+      gap: 14px;
+    }
+
+    &__group {
+      gap: 8px;
+    }
+
+    &__icon {
+      display: none;
+      &_active {
+        display: block;
+        margin-top: 4px;
+      }
+    }
+    & p {
+      width: 100%;
+    }
+  }
+}
+
+/* /footer */
+
+
+.logo {
+  width: 164px !important;
+  height: 30px !important;
+}
+
+@media screen and (max-width: 500px) {
+  .logo {
+    width: 112.51px !important;
+    height: 20.45px !important;
+  }
+}
