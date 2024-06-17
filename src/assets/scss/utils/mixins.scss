@@ -23,7 +23,7 @@
   border: $width solid $color;
 }
 
-@mixin borderGroup($radius,$width, $color) {
+@mixin borderGroup($radius, $width, $color) {
   border-radius: $radius;
   @include border($width, $color);
 }

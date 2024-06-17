@@ -20,7 +20,6 @@
 
 
 a:hover {
-  opacity: 0.8;
   cursor: pointer;
 }
 
@@ -38,6 +37,13 @@ h1 {
   font-size: calc(20px + 16 * (100vw - 320px) / 1600);
   line-height: clamp(29.26px, calc(1.5em + 0.3 * (100vw - 320px) / 1600), 43.57px);
   font-weight: $fontWeightMedium;
+}
+
+.p17 {
+  font-size: calc(12px + 5 * (100vw - 320px) / 1600);
+  line-height: clamp(15.6px, calc(1.5em + 0.3 * (100vw - 320px) / 1600), 22.1px);
+  color: $colorFontCategories;
+  font-weight: $fontWeightRegular;
 }
 
 .p19 {
@@ -63,6 +69,13 @@ h1 {
   font-size: calc(15px + 5 * (100vw - 320px) / 1600);
   line-height: clamp(18.29px, calc(1.5em + 0.3 * (100vw - 320px) / 1600), 24.38px);
   font-weight: $fontWeightMedium;
+}
+
+.h19 {
+  font-size: calc(15px + 4 * (100vw - 320px) / 1600);
+  line-height: clamp(18.29px, calc(1.5em + 0.3 * (100vw - 320px) / 1600), 23.16px);
+  font-weight: $fontWeightRegular;
+  color: $colorFontCategories;
 }
 
 .b1 {
@@ -116,7 +129,7 @@ img {
       gap: 22px;
 
       &.hovered {
-        box-shadow: 1px 2px 4px -1px rgba(129, 116, 150, 1);
+        box-shadow: $boxShadow;
         cursor: pointer;
         border-radius: 40px;
       }
@@ -267,6 +280,12 @@ img {
   background-color: $coloringViolet;
   @include flex-center;
   padding: 0;
+  &:hover {
+    cursor: pointer;
+    background-color: $colorWhite;
+    color: $colorFontCategories;
+    @include border(1px, $coloringViolet);
+  }
 }
 
 .button__arrow {
@@ -317,6 +336,7 @@ img {
   width: 60px;
   height: 60px;
   @include flex-center;
+
   &:hover {
     cursor: pointer;
     background-image: url("/assets/img/arrowUpHover.svg");
@@ -339,6 +359,7 @@ img {
     right: 10px;
   }
 }
+
 /* /button */
 
 .swiper-pagination {
@@ -389,8 +410,9 @@ img {
     background-color: $colorFonCategories;
     padding: 20px;
     border-radius: 40px;
+
     &:hover {
-      box-shadow: 1px 2px 4px -1px rgba(129, 116, 150, 1);
+      box-shadow: $boxShadow;
       cursor: pointer;
     }
   }
@@ -482,6 +504,7 @@ img {
   &__icon {
     @include flex-row;
     gap: 8px;
+
     &_active {
       display: none;
     }
@@ -490,6 +513,7 @@ img {
   & a {
     width: 32px;
     height: 32px;
+
     & img {
       width: 100%;
       height: 100%;
@@ -503,6 +527,7 @@ img {
       padding-right: 100px;
       padding-left: 100px;
     }
+
     & p {
       width: 50%;
     }
@@ -525,12 +550,14 @@ img {
 
     &__icon {
       display: none;
+
       &_active {
         @include flex-row;
         margin-top: 4px;
         gap: 8px;
       }
     }
+
     & p {
       width: 100%;
     }
@@ -539,6 +566,7 @@ img {
 
 /* /footer */
 
+/* logo */
 
 .logo {
   width: 164px !important;
@@ -550,4 +578,271 @@ img {
     width: 112.51px !important;
     height: 20.45px !important;
   }
+}
+
+/* /logo */
+
+/* header */
+.header {
+  &__container {
+    padding: 0 0 30px;
+    @include flex-column;
+  }
+
+  &__block {
+    @include flex-row;
+    align-items: center;
+    gap: 158px;
+    padding: 16px 16% 16px;
+    background-color: $colorHeaderFon;
+  }
+
+  &__nav {
+    border-bottom: 1px solid $colorBorderBottom;
+    padding: 25px 16% 22px;
+  }
+
+  &__list {
+    @include flex-row;
+    justify-content: space-between;
+  }
+
+  &__items {
+    position: relative;
+  }
+  .header__row.hovered {
+    display: block;
+  }
+  &__group {
+    &:hover{
+      .h19 {
+        color: $coloringViolet;
+      }
+    }
+  }
+  &__row {
+    width: max-content;
+    display: none;
+    position: absolute;
+    left: -30px;
+    top: 100%;
+    box-shadow: $boxShadow;
+    padding: 8px;
+    border-radius: 20px;
+    z-index: 100;
+    background-color: $colorWhite;
+    &:hover {
+      display: block;
+      a {
+        font-weight: $fontWeightMedium !important;
+      }
+    }
+    & li {
+      padding: 12px;
+        &:hover {
+          cursor: pointer;
+          border-radius: 12px;
+          background-color: $coloringPagesFon;
+      }
+    }
+  }
+}
+.cross {
+  display: none;
+  margin-right: 0;
+  margin-left: auto;
+  background-image: url("/assets/img/header/cross.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 32px;
+  height: 32px;
+}
+.arrow {
+  display: none;
+  width: 18px;
+  height: 9.3px;
+  background-image: url("/assets/img/header/arrowUpViolet.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  margin: 3px 7px;
+  background-color: transparent;
+}
+@media screen and (max-width: 1550px) {
+  .header {
+    &__block {
+      gap: 10%;
+    }
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .header {
+    &__block {
+      padding-left: 10%;
+      padding-right: 10%;
+    }
+  }
+}
+@media screen and (max-width: 900px) {
+  .header {
+    &__container {
+      padding: 0;
+    }
+    &__nav {
+      @include flex-column;
+      gap: 20px;
+      padding: 40px 10px 290px;
+      position: fixed;
+      z-index: 101;
+      top: 0;
+      right: 0;
+      border-radius: 20px 0 0 20px;
+      background-color: $colorWhite;
+      width: 90%;
+      border-bottom: 0;
+    }
+    &__list {
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    &__items {
+      padding-bottom: 14px;
+      border-bottom: 1px solid $colorBorder;
+      gap: 12px;
+      @include flex-column;
+    }
+    &__block {
+      padding-top: 10px;
+      padding-bottom: 8px;
+      @include flex-column;
+      gap: 10px;
+    }
+    &__group {
+      @include flex-row;
+      justify-content: space-between;
+      align-items: center;
+    }
+    &__row {
+      position: relative;
+      top: 0;
+      left: 0;
+      box-shadow: none;
+      padding: 0;
+      border: 0;
+      & li {
+        padding: 0 0 12px;
+        &:hover {
+          cursor: pointer;
+          border-radius: 0;
+          background-color: transparent;
+        }
+      }
+    }
+  }
+  .cross, .arrow {
+    display: block;
+  }
+}
+
+
+@media screen and (max-width: 500px) {
+  .header {
+    &__block {
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+  }
+}
+
+/* /header */
+.search-form {
+  width: 100%;
+  @include flex-row;
+  padding-right: 19%;
+  gap: 10px;
+
+  &__container {
+    width: -webkit-fill-available;
+    @include flex-row;
+    justify-content: space-between;
+    @include borderGroup(40px, 1px, $colorBorder);
+    background-color: $colorWhite;
+    padding: 12px 10px;
+
+    & input {
+      width: 85%;
+    }
+    &:hover {
+      border-color: $coloringViolet;
+    }
+  }
+
+  &__button {
+    margin: 0;
+  }
+}
+
+.burger {
+  display: none;
+}
+
+.search-button {
+  background-size: cover;
+  background-image: url("/assets/img/header/iconSearch.svg");
+  background-repeat: no-repeat;
+  width: 24px;
+  height: 24px;
+  background-color: transparent;
+  &.hovered {
+    background-image: url("/assets/img/header/iconSearchHover.svg") !important;
+  }
+
+  &__sound {
+    background-image: url("/assets/img/header/soundSearch.svg");
+    &.hovered {
+      background-image: url("/assets/img/header/soundSearchHover.svg") !important;
+    }
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .search-form {
+    padding-right: 0;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .search-form {
+    gap: 5px;
+    &__button {
+      display: none;
+    }
+    &__container {
+      width: 90%;
+      padding-top: 6px;
+      padding-bottom: 6px;
+    }
+  }
+  .search-button {
+    width: 20px;
+    height: 20px;
+  }
+  .burger {
+    display: block;
+    background-image: url("/assets/img/header/burger.svg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 32px;
+    height: 32px;
+    &:hover {
+      cursor: pointer;
+      opacity: 0.8;
+    }
+  }
+}
+
+
+@media screen and (max-width: 500px) {
+
 }
