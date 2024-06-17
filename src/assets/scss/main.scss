@@ -19,6 +19,11 @@
 }
 
 
+a:hover {
+  opacity: 0.8;
+  cursor: pointer;
+}
+
 /* font */
 h1 {
   text-transform: uppercase;
@@ -80,7 +85,6 @@ h1 {
 img {
   object-fit: contain;
   width: 100%;
-  height: 100%;
 }
 
 /* /img */
@@ -292,6 +296,7 @@ img {
   }
 }
 
+
 @media screen and (max-width: 700px) {
   .button__arrow {
     top: 10px;
@@ -299,6 +304,41 @@ img {
   }
 }
 
+
+.up-arrow {
+  z-index: 100;
+  position: fixed;
+  bottom: 192px;
+  right: 40px;
+  background-image: url("/assets/img/arrowUp.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-color: transparent;
+  width: 60px;
+  height: 60px;
+  @include flex-center;
+  &:hover {
+    cursor: pointer;
+    background-image: url("/assets/img/arrowUpHover.svg");
+  }
+}
+
+
+@media screen and (max-width: 900px) {
+  .up-arrow {
+    width: 50px;
+    height: 50px;
+    bottom: 253px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .up-arrow {
+    width: 40px;
+    height: 40px;
+    right: 10px;
+  }
+}
 /* /button */
 
 .swiper-pagination {
@@ -337,6 +377,7 @@ img {
 
   &__groups {
     display: grid;
+    justify-content: center;
     grid-template-columns: repeat(4, minmax(150px, 320px));
     gap: 10px;
   }
@@ -348,6 +389,10 @@ img {
     background-color: $colorFonCategories;
     padding: 20px;
     border-radius: 40px;
+    &:hover {
+      box-shadow: 1px 2px 4px -1px rgba(129, 116, 150, 1);
+      cursor: pointer;
+    }
   }
 
   &__info {
@@ -381,7 +426,6 @@ img {
     }
 
     &__groups {
-      justify-content: center;
       display: grid;
       gap: 10px;
     }
@@ -391,7 +435,6 @@ img {
     }
 
     &__group {
-      height: 300px;
       border-radius: 20px;
       padding: 8px;
       gap: 4px;
@@ -444,9 +487,13 @@ img {
     }
   }
 
-  & img {
+  & a {
     width: 32px;
     height: 32px;
+    & img {
+      width: 100%;
+      height: 100%;
+    }
   }
 }
 
@@ -479,8 +526,9 @@ img {
     &__icon {
       display: none;
       &_active {
-        display: block;
+        @include flex-row;
         margin-top: 4px;
+        gap: 8px;
       }
     }
     & p {
