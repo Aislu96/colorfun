@@ -3,6 +3,11 @@ const gridContainerGroupArticles = document.querySelectorAll('.grid-container__g
 const headerContainer =  document.querySelector('.search-form__container');
 const searchButton = document.querySelector('.search-button');
 const searchButtonSound = document.querySelector('.search-button__sound');
+const buttonMenuBurger = document.querySelector('.button-menu__burger');
+const buttonMenuCross = document.querySelector('.button-menu__cross');
+const headerNav = document.querySelector('.header__nav');
+const overlay = document.querySelector('.overlay');
+
 
 //При наведении на кнопку со стрелкой, появляется эффект
 for (let i = 0; i < buttonArrow.length; i++) {
@@ -42,17 +47,58 @@ const headerGroup = document.querySelectorAll('.header__group');
 const arrow = document.querySelectorAll('.arrow');
 
 let arr = Array.from(headerGroup);
-arr.shift();
-arr.pop();
+arr.shift(); // Удаляем первый элемент
+arr.pop(); // Удаляем последний элемент
 
-const headerRow =  document.querySelectorAll('.header__row');
-for (let i = 0; i < arr.length; i++) {
-  arr[i].addEventListener('mouseover', function () {
-    headerRow[i].classList.add('hovered');
-    arrow[i].style.backgroundImage = '/assets/img/header/arrowDownViolet.svg';
+const headerRow = document.querySelectorAll('.header__row');
+
+// Перебираем оставшиеся элементы в arr
+arr.forEach((element, i) => {
+  element.addEventListener('click', function () {
+    headerRow[i].classList.toggle('hovered');
+    arrow[i].classList.toggle('arrow__img-two');
   });
-  arr[i].addEventListener('mouseout', function () {
-    headerRow[i].classList.remove('hovered');
-    arrow[i].style.backgroundImage = '/assets/img/header/arrowUpViolet.svg';
-  });
+});
+
+
+//открытие бургер меню
+buttonMenuBurger.addEventListener('click', toggleButtonMenu);
+buttonMenuCross.addEventListener('click', toggleButtonCross);
+
+function toggleButtonMenu(e) {
+  e.preventDefault();
+  headerNav.style.display = 'flex';
+  overlay.style.display = 'block';
+}
+
+function toggleButtonCross(e) {
+  e.preventDefault();
+  headerNav.style.display = 'none';
+  overlay.style.display = 'none';
+}
+
+
+
+// открытие окна при вводе в input
+const input = document.getElementById('myInput');
+const popup = document.getElementById('popup');
+input.addEventListener('input', function() {
+  const inputValue = input.value.trim(); // Получаем значение и обрезаем лишние пробелы
+
+  if (inputValue !== '') {
+    openPopup();
+  } else {
+    closePopup();
+  }
+});
+
+
+function openPopup() {
+  // popup.classList.add('active');
+  overlay.style.display = 'block';
+}
+
+function closePopup() {
+  // popup.classList.remove('active');
+  overlay.style.display = 'none';
 }

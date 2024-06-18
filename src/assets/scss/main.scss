@@ -325,7 +325,7 @@ img {
 
 
 .up-arrow {
-  z-index: 100;
+  z-index: 98;
   position: fixed;
   bottom: 192px;
   right: 40px;
@@ -504,6 +504,10 @@ img {
   &__icon {
     @include flex-row;
     gap: 8px;
+    &:hover {
+      opacity: 0.8;
+      cursor: pointer;
+    }
 
     &_active {
       display: none;
@@ -610,9 +614,6 @@ img {
   &__items {
     position: relative;
   }
-  .header__row.hovered {
-    display: block;
-  }
   &__group {
     &:hover{
       .h19 {
@@ -631,7 +632,7 @@ img {
     border-radius: 20px;
     z-index: 100;
     background-color: $colorWhite;
-    &:hover {
+    &.hovered {
       display: block;
       a {
         font-weight: $fontWeightMedium !important;
@@ -647,25 +648,54 @@ img {
     }
   }
 }
-.cross {
+.button-menu {
   display: none;
+  align-items: center;
+  justify-content: center;
   margin-right: 0;
   margin-left: auto;
-  background-image: url("/assets/img/header/cross.svg");
-  background-size: cover;
-  background-repeat: no-repeat;
+  background-color: $coloringViolet;
   width: 32px;
   height: 32px;
+  box-sizing: border-box;
+  border-radius: 8px;
+  & img {
+    width: 20px;
+    height: 20px;
+    object-fit: cover;
+  }
+  &__burger img {
+    width: 19.5px;
+    height: 15px;
+  }
+  &:hover {
+    cursor: pointer;
+    background-color: $colorBorder;
+  }
 }
+
+
+@media screen and (max-width: 900px) {
+  .button-menu {
+    display: flex;
+  }
+}
+
 .arrow {
   display: none;
-  width: 18px;
+  align-items: center;
+  justify-content: center;
+  padding: 7.5px 3px;
+  background-color: transparent;
+  width: 18.3px;
   height: 9.3px;
-  background-image: url("/assets/img/header/arrowUpViolet.svg");
   background-repeat: no-repeat;
   background-size: contain;
-  margin: 3px 7px;
-  background-color: transparent;
+  background-image: url("/assets/img/header/arrowUpViolet.svg");
+}
+
+.arrow__img-two {
+  background-image: url("/assets/img/header/arrowDownViolet.svg");
 }
 @media screen and (max-width: 1550px) {
   .header {
@@ -689,7 +719,8 @@ img {
       padding: 0;
     }
     &__nav {
-      @include flex-column;
+      display: none;
+      flex-direction: column;
       gap: 20px;
       padding: 40px 10px 290px;
       position: fixed;
@@ -700,6 +731,7 @@ img {
       background-color: $colorWhite;
       width: 90%;
       border-bottom: 0;
+
     }
     &__list {
       flex-direction: column;
@@ -723,6 +755,9 @@ img {
       justify-content: space-between;
       align-items: center;
     }
+
+
+
     &__row {
       position: relative;
       top: 0;
@@ -730,14 +765,6 @@ img {
       box-shadow: none;
       padding: 0;
       border: 0;
-      & li {
-        padding: 0 0 12px;
-        &:hover {
-          cursor: pointer;
-          border-radius: 0;
-          background-color: transparent;
-        }
-      }
     }
   }
   .cross, .arrow {
@@ -783,10 +810,6 @@ img {
   }
 }
 
-.burger {
-  display: none;
-}
-
 .search-button {
   background-size: cover;
   background-image: url("/assets/img/header/iconSearch.svg");
@@ -795,13 +818,16 @@ img {
   height: 24px;
   background-color: transparent;
   &.hovered {
-    background-image: url("/assets/img/header/iconSearchHover.svg") !important;
+    background-image: url("/assets/img/header/iconSearchHover.svg");
+  }
+  &__popup {
+    background-image: url("/assets/img/header/iconSearchHover.svg");
   }
 
   &__sound {
     background-image: url("/assets/img/header/soundSearch.svg");
     &.hovered {
-      background-image: url("/assets/img/header/soundSearchHover.svg") !important;
+      background-image: url("/assets/img/header/soundSearchHover.svg");
     }
   }
 }
@@ -830,19 +856,44 @@ img {
   }
   .burger {
     display: block;
-    background-image: url("/assets/img/header/burger.svg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    width: 32px;
-    height: 32px;
-    &:hover {
-      cursor: pointer;
-      opacity: 0.8;
-    }
   }
 }
 
 
-@media screen and (max-width: 500px) {
+/* overlay */
+.overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Полупрозрачный черный цвет */
+  z-index: 99;
+}
 
+
+.popup {
+  width: 100%;
+  &__block {
+    display: none;
+    padding: 16px 1px 0;
+    z-index: 50;
+    background-color: $colorWhite;
+    top: 90px;
+    width: 100%;
+    flex-direction: column;
+    gap: 8px;
+  }
+  &__item {
+    @include flex-row;
+    gap: 25px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid $colorBorder;
+  }
+}
+.popup__active {
+  background-color: $colorWhite;
+  padding: 8px 10px 36px;
+  border-radius: 20px;
 }

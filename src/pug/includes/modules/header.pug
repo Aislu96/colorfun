@@ -1,16 +1,27 @@
-footer.header
+div.overlay
+header.header
     div.header__container
         div.header__block
             img.logo(src="/assets/img/logo.svg" alt="logo")
-            form.search-form
-                div.search-form__container
-                    button.search-button(type="submit")
-                    input.p17(type="text" name="search")
-                    button.search-button.search-button__sound(type="submit")
-                button.button.b1.search-form__button(type="submit") Найти
-                button.burger(type="submit")
+            div.popup
+                form.search-form
+                    div.search-form__container
+                        button.search-button(type="submit")
+                        input.p17#myInput(type="text" name="search")
+                        button.search-button.search-button__sound(type="submit")
+                    button.button.b1.search-form__button(type="submit") Найти
+                    button.button-menu.button-menu__burger(type="submit")
+                        img(src='/assets/img/header/burger.svg' alt='picture burger menu')
+                div.popup__block
+                    div.popup__item
+                        button.search-button.search-button__popup(type="submit")
+                        p.p17 Кот в сапогах
+                    div.popup__item
+                        button.search-button.search-button__popup(type="submit")
+                        p.p17 Кот в сапогах
         nav.header__nav
-            button.cross
+            button.button-menu.button-menu__cross
+                img(src='/assets/img/header/cross.svg' alt='picture cross')
             ul.header__list
                 li.header__items
                     div.header__group
