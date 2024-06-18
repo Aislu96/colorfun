@@ -1,6 +1,6 @@
 const buttonArrow = document.querySelectorAll('.button__arrow');
 const gridContainerGroupArticles = document.querySelectorAll('.grid-container__group-articles');
-const headerContainer =  document.querySelector('.search-form__container');
+const headerContainer = document.querySelector('.search-form__container');
 const searchButton = document.querySelector('.search-button');
 const searchButtonSound = document.querySelector('.search-button__sound');
 const buttonMenuBurger = document.querySelector('.button-menu__burger');
@@ -69,21 +69,22 @@ function toggleButtonMenu(e) {
   e.preventDefault();
   headerNav.style.display = 'flex';
   overlay.style.display = 'block';
+  overlay.style.zIndex = '101';
 }
 
 function toggleButtonCross(e) {
   e.preventDefault();
   headerNav.style.display = 'none';
   overlay.style.display = 'none';
+  overlay.style.zIndex = '100';
 }
-
 
 
 // открытие окна при вводе в input
 const input = document.getElementById('myInput');
 const popup = document.querySelector('.popup');
-const popupBlock  = document.querySelector('.popup__block');
-input.addEventListener('input', function() {
+const popupBlock = document.querySelector('.popup__block');
+input.addEventListener('input', function () {
   const inputValue = input.value.trim(); // Получаем значение и обрезаем лишние пробелы
 
   if (inputValue !== '') {
@@ -104,4 +105,18 @@ function closePopup() {
   popup.classList.remove('popup__active');
   overlay.style.display = 'none';
   popupBlock.style.display = 'none';
+}
+
+
+//При наведении на категории появляется эффект
+const coloringPagesText = document.querySelectorAll('.coloring-pages__text');
+const coloringPagesRow = document.querySelectorAll('.coloring-pages__row');
+
+for (let i = 0; i < coloringPagesText.length; i++) {
+  coloringPagesText[i].addEventListener('mouseover', function () {
+    coloringPagesRow[i].classList.add('hovered');
+  });
+  coloringPagesText[i].addEventListener('mouseout', function () {
+    coloringPagesRow[i].classList.remove('hovered');
+  });
 }

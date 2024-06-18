@@ -39,6 +39,19 @@ h1 {
   font-weight: $fontWeightMedium;
 }
 
+.h64 {
+  color: $colorFontCategories;
+  font-size: calc(26px + 38 * (100vw - 320px) / 1600);
+  line-height: clamp(26px, calc(1.5em + 0.3 * (100vw - 320px) / 1600), 64px);
+  font-weight: $fontWeightRegular;
+}
+.p19x {
+  color: $colorFontCategories;
+  font-size: calc(16px + 3 * (100vw - 320px) / 1600);
+  line-height: clamp(20.8px, calc(1.5em + 0.3 * (100vw - 320px) / 1600), 24.7px);
+  font-weight: $fontWeightRegular;
+}
+
 .p17 {
   font-size: calc(12px + 5 * (100vw - 320px) / 1600);
   line-height: clamp(15.6px, calc(1.5em + 0.3 * (100vw - 320px) / 1600), 22.1px);
@@ -229,6 +242,7 @@ img {
     margin-right: 35px;
     padding: 8px 32px;
     @include borderGroup(16px, 1px, $coloringViolet);
+
     &:hover {
       cursor: pointer;
       background-color: $coloringViolet;
@@ -258,6 +272,7 @@ img {
 @media screen and (max-width: 1000px) {
   .coloring-pages {
     &__row {
+      display: none;
       width: 75%;
       position: absolute;
       gap: 0;
@@ -268,11 +283,17 @@ img {
       padding: 4px;
       border-radius: 20px;
       box-shadow: $boxShadow;
+
+      &.hovered {
+        display: flex;
+      }
+
       & a {
         display: block;
         width: 100%;
         border: 0;
         padding: 8px;
+
         &:hover {
           box-shadow: none;
           background-color: $coloringPagesFon;
@@ -281,9 +302,11 @@ img {
         }
       }
     }
+
     &__text {
       display: block;
     }
+
     &__blocks {
       justify-content: space-between;
     }
@@ -305,24 +328,50 @@ img {
 /* triangle */
 .triangle {
   position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
   height: 0;
-  border-left: 50vw solid transparent;
-  border-right: 50vw solid transparent;
-  border-bottom: 50px solid white;
-}
+  &__one {
+    border-left: 50vw solid transparent;
+    border-right: 50vw solid transparent;
+    border-bottom: 50px solid white;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+  }
+  &__two {
+    top: 0;
+    left: calc(50% - 50vw);
+    width: 0;
+    border-left: 40vw solid transparent;
+    border-right: 40vw solid transparent;
+    border-top: 30px solid white;
+  }
+  &__holidays {
+    position: absolute;
+    top: 0;
+    left: calc(30% - 50vw);
+    width: 0;
+    height: 0;
+    border-left: 30vw solid transparent;
+    border-right: 40vw solid transparent;
+    border-top: 30px solid white;
+    &-bottom {
+      left: calc(30% - 50vw);
+      border-left: 50vw solid transparent;
+      border-right: 50vw solid transparent;
+      border-bottom: 50px solid $colorHeaderFon;
+      width: 0;
+      bottom: 0;
+    }
+  }
+  &__interests {
+    left: calc(30% - 50vw);
+    border-left: 50vw solid transparent;
+    border-right: 50vw solid transparent;
+    border-bottom: 50px solid white;
+    width: 100%;
+    bottom: 0;
+  }
 
-.triangle__two {
-  position: absolute;
-  top: 0; /* Выравниваем по верхнему краю */
-  left: calc(50% - 50vw); /* Прижимаем угол к левому краю */
-  width: 0;
-  height: 0;
-  border-left: 40vw solid transparent;
-  border-right: 40vw solid transparent;
-  border-top: 30px solid white; /* Заменяем border-bottom на border-top */
 }
 
 
@@ -761,14 +810,13 @@ img {
   display: none;
   align-items: center;
   justify-content: center;
-  margin-right: 0;
-  margin-left: auto;
   background-color: $coloringViolet;
   width: 32px;
   height: 32px;
   box-sizing: border-box;
   border-radius: 8px;
-
+  margin-right: 0;
+  margin-left: auto;
   & img {
     width: 20px;
     height: 20px;
@@ -776,8 +824,8 @@ img {
   }
 
   &__burger img {
-    width: 19.5px;
-    height: 15px;
+      width: 19.5px;
+      height: 15px;
   }
 
   &:hover {
@@ -844,7 +892,7 @@ img {
       right: 0;
       border-radius: 20px 0 0 20px;
       background-color: $colorWhite;
-      width: 90%;
+      width: 80%;
       border-bottom: 0;
 
     }
@@ -985,12 +1033,12 @@ img {
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.5); /* Полупрозрачный черный цвет */
-  z-index: 99;
+  z-index: 100;
 }
 
 
 .popup {
-  z-index: 99;
+  z-index: 100;
   position: relative;
   width: 60%;
 
@@ -1002,7 +1050,7 @@ img {
     width: 100%;
     flex-direction: column;
     gap: 8px;
-    z-index: 99;
+    z-index: 100;
     top: 58px;
     left: 0;
     border-radius: 0 0 20px 20px;
@@ -1019,6 +1067,21 @@ img {
     background-color: $colorWhite;
     padding: 8px 10px 0;
     border-radius: 20px 20px 0 0;
+  }
+  &__not-found {
+    position: absolute;
+    background-color: $coloringPagesFon;
+    z-index: 100;
+    top: 30px;
+    left: 50%;
+    padding: 98px 80px;
+    @include flex-column;
+    border-radius: 60px;
+    width: 50%;
+  }
+  &__cross {
+    width: 20px;
+    height: 20px;
   }
 }
 
