@@ -81,7 +81,8 @@ function toggleButtonCross(e) {
 
 // открытие окна при вводе в input
 const input = document.getElementById('myInput');
-const popup = document.getElementById('popup');
+const popup = document.querySelector('.popup');
+const popupBlock  = document.querySelector('.popup__block');
 input.addEventListener('input', function() {
   const inputValue = input.value.trim(); // Получаем значение и обрезаем лишние пробелы
 
@@ -94,11 +95,13 @@ input.addEventListener('input', function() {
 
 
 function openPopup() {
-  // popup.classList.add('active');
+  popup.classList.add('popup__active');
   overlay.style.display = 'block';
+  popupBlock.style.display = 'flex';
 }
 
 function closePopup() {
-  // popup.classList.remove('active');
+  popup.classList.remove('popup__active');
   overlay.style.display = 'none';
+  popupBlock.style.display = 'none';
 }
