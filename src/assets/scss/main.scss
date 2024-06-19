@@ -197,6 +197,7 @@ img {
     &__group-articles {
       width: 300px !important;
       gap: 12px;
+
       &_search {
         width: auto !important;
       }
@@ -227,6 +228,7 @@ img {
     background-color: $coloringPagesFon;
     padding: 100px 16% 151px;
     @include container(40px);
+
     &_search {
       background-color: $colorWhite;
     }
@@ -235,6 +237,7 @@ img {
       gap: 30px;
       padding-bottom: 90px;
     }
+
     &_three {
       gap: 30px;
       padding-top: 60px;
@@ -325,6 +328,7 @@ img {
     &__container_search {
       padding-bottom: 60px;
     }
+
     &__text {
       display: block;
     }
@@ -341,9 +345,11 @@ img {
     &__container {
       padding: 50px 10px 114px;
       gap: 20px;
+
       &_three {
         padding-bottom: 50px;
       }
+
       &_search {
         padding-bottom: 60px;
       }
@@ -431,6 +437,7 @@ img {
       padding-left: 10px;
       padding-right: 0;
       @include container(20px);
+
       &_search {
         padding-top: 0;
         padding-right: 10px;
@@ -454,6 +461,10 @@ img {
   background-color: $coloringViolet;
   @include flex-center;
   padding: 0;
+
+  &__not-found {
+    width: 240px;
+  }
 
   &:hover {
     cursor: pointer;
@@ -664,6 +675,10 @@ img {
     padding: 64px 16% 43px;
     @include flex-row;
     justify-content: space-between;
+    &_not-found {
+      padding-top: 0;
+      padding-bottom: 30px;
+    }
   }
 
   &__block {
@@ -722,6 +737,10 @@ img {
   .footer {
     &__container {
       padding: 87px 10px 46px;
+      &_not-found {
+        padding-top: 0;
+        padding-bottom: 10px;
+      }
     }
 
     &__block {
@@ -779,6 +798,7 @@ img {
   &__container {
     padding: 0 0 30px;
     @include flex-column;
+
     &_not-found {
       padding-bottom: 0;
     }
@@ -790,13 +810,17 @@ img {
     gap: 158px;
     padding: 16px 16% 16px;
     background-color: $colorHeaderFon;
+
     &_not-found {
+      background-color: $coloringPagesFon;
       gap: 48px;
       align-items: start;
     }
   }
+
   &__img-not-found {
     width: 70%;
+
     & img {
       width: 100%;
     }
@@ -931,9 +955,11 @@ img {
     &__container {
       padding: 0;
     }
+
     &__img-not-found {
       width: 80%;
     }
+
     &__nav {
       display: none;
       flex-direction: column;
@@ -967,6 +993,7 @@ img {
       padding-bottom: 8px;
       @include flex-column;
       gap: 10px;
+
       &_not-found {
         align-items: center;
       }
@@ -1137,6 +1164,7 @@ img {
     opacity: 0;
     transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
     z-index: 101;
+
     &_opened {
       opacity: 1;
       visibility: visible;
@@ -1150,14 +1178,17 @@ img {
     background-color: $coloringPagesFon;
     padding: 98px 80px;
     border-radius: 60px;
+
     & h2 {
       margin-bottom: 40px;
     }
+
     & p {
       text-align: center;
       margin-bottom: 20px;
     }
   }
+
   &__search-form {
     @include flex-column;
     gap: 20px;
@@ -1168,10 +1199,12 @@ img {
     position: absolute;
     top: 30px;
     right: 30px;
+
     & {
       cursor: pointer;
       opacity: 0.8;
     }
+
     & img {
       width: 24px;
       height: 24px;
@@ -1198,6 +1231,7 @@ img {
     &__block {
       top: 45px;
     }
+
     &__search-form {
       gap: 16px;
     }
@@ -1205,6 +1239,7 @@ img {
     &__cross {
       top: 22px;
       right: 22px;
+
       & img {
         width: 20px;
         height: 20px;
@@ -1212,7 +1247,6 @@ img {
     }
   }
 }
-
 
 
 @media screen and (max-width: 800px) {
@@ -1232,13 +1266,68 @@ img {
     &__block {
       top: 45px;
     }
+
     &__container {
       padding: 60px 10px 51px;
+
       & h2 {
         margin-bottom: 12px;
       }
+
       & p {
         margin-bottom: 16px;
+      }
+    }
+  }
+}
+
+
+/* not-found */
+/* /not-found */
+.not-found {
+  &__container {
+    background-color: $coloringPagesFon;
+    padding: 0 16% 25px;
+    @include flex-column;
+    align-items: center;
+
+    & h2 {
+      margin-bottom: 10px;
+      text-align: center;
+    }
+  }
+
+  &__text {
+    margin-bottom: 10px;
+    width: 60%;
+    text-align: center;
+
+    &_one {
+      margin-bottom: 20px;
+      margin-top: 20px;
+    }
+  }
+}
+
+
+@media screen and (max-width: 700px) {
+  .not-found {
+    &__container {
+      padding: 60px 10px 30px;
+
+      & h2 {
+        margin-bottom: 20px;
+      }
+    }
+
+    &__text {
+      margin-bottom: 10px;
+      width: 60%;
+      text-align: center;
+
+      &_one {
+        margin-bottom: 20px;
+        margin-top: 20px;
       }
     }
   }

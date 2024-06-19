@@ -1,11 +1,53 @@
 @import "mixins";
 
 @font-face {
-  font-family: AvenirNextCyr-Demi;
-  src: local(avenirnext-demibold),
-  url('/assets/fonts/AvenirNextCyr-Demi.woff2') format("woff2"),
-  url('/assets/fonts/AvenirNextCyr-Demi.woff') format("woff"),
-  url('/assets/fonts/AvenirNextCyr-Demi.ttf') format("truetype");
+  font-family: "Montserrat";
+  font-weight: $fontWeightRegular;
   font-style: normal;
-  font-stretch: normal;
+  font-display: swap;
+  src: url('/assets/fonts/Montserrat-Regular.woff2') format("woff2"),
+  url('/assets/fonts/Montserrat-Regular.woff') format("woff"),
+  url('/assets/fonts/Montserrat-Regular.ttf') format("ttf");
+}
+
+@font-face {
+  font-family: "Montserrat";
+  font-weight: $fontWeightLight;
+  font-style: normal;
+  font-display: swap;
+  src: url('/assets/fonts/Montserrat-Light.woff2') format("woff2"),
+  url('/assets/fonts/Montserrat-Light.woff') format("woff"),
+  url('/assets/fonts/Montserrat-Light.ttf') format("ttf");
+}
+
+
+@font-face {
+  font-family: "Montserrat";
+  font-weight: $fontWeightBold;
+  font-style: normal;
+  font-display: swap;
+  src: url('/assets/fonts/Montserrat-Bold.woff2') format("woff2"),
+  url('/assets/fonts/Montserrat-Bold.woff') format("woff"),
+  url('/assets/fonts/Montserrat-Bold.ttf') format("ttf");
+}
+
+@font-face {
+  font-family: "Montserrat";
+  font-weight: $fontWeightMedium;
+  font-style: normal;
+  font-display: swap;
+  src: url('/assets/fonts/Montserrat-Medium.woff2') format("woff2"),
+  url('/assets/fonts/Montserrat-Medium.woff') format("woff"),
+  url('/assets/fonts/Montserrat-Medium.ttf') format("ttf");
+}
+
+@font-face {
+  font-family: "Montserrat";
+  font-weight: $fontWeightSemiBold;
+  font-style: normal;
+  font-display: swap;
+  src: url('/assets/fonts/Montserrat-SemiBold.woff2') format("woff2"),
+  url('/assets/fonts/Montserrat-SemiBold.woff') format("woff"),
+  url('/assets/fonts/Montserrat-SemiBold.ttf') format("ttf");
+
 }
