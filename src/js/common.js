@@ -120,3 +120,17 @@ for (let i = 0; i < coloringPagesText.length; i++) {
     coloringPagesRow[i].classList.remove('hovered');
   });
 }
+
+
+//клик по по overlay и крестику popup
+const popupCross = document.querySelector('.popup__cross');
+const popupNotFound = document.querySelector('.popup__not-found');
+popupCross.addEventListener('click', function () {
+  popupNotFound.classList.remove('popup__not-found_opened');
+});
+
+popupNotFound.addEventListener('click', function () {
+  popupNotFound.classList.remove('popup__not-found_opened');
+});
+
+

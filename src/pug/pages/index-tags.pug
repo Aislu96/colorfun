@@ -1,0 +1,137 @@
+extends ../layout/base
+
+block variables
+    //подключаем основу для страницы и выводим в нее данные
+    - var title='COLORFUN';
+    - var description='COLORFUN';
+    - var pageClass='index-page';
+    - var imagesData = require('../../js/imagesData.json');
+
+block content
+    button.up-arrow
+
+    section.coloring-pages.coloring-pages__two-page
+        div.coloring-pages__container.coloring-pages__container_two
+            h1 Метки
+            div.coloring-pages__blocks
+                h2.h36 Для детей
+                div.coloring-pages__block
+                    a.coloring-pages__text.pX Категории
+                    ul.coloring-pages__row
+                        li
+                            a.pX(href="#") Мультфильмы
+                        li
+                            a.pX(href="#") Видеоигры
+                        li
+                            a.pX(href="#") Животные
+                        li
+                            a.pX(href="#") Природа
+                        li
+                            a.pX(href="#") Все
+
+            div.grid-container
+                each imageData in imagesData
+                    div.grid-container__group
+                        img(src=imageData.src, alt=imageData.text)
+                        p.p19=imageData.text
+            div.triangle.triangle__one
+        div.coloring-pages__container.coloring-pages__container_two(style="background-color: white")
+            div.coloring-pages__blocks
+                h2.h36 Для взрослых
+                div.coloring-pages__block
+                    a.coloring-pages__text.pX Категории
+                    ul.coloring-pages__row
+                        li
+                            a.pX(href="#") Сложные узоры
+                        li
+                            a.pX(href="#") Мандалы
+                        li
+                            a.pX(href="#") Зен-раскраски
+                        li
+                            a.pX(href="#") Все
+
+            div.grid-container
+                each imageData in imagesData
+                    div.grid-container__group
+                        img(src=imageData.src, alt=imageData.text)
+                        p.p19=imageData.text
+
+        div.coloring-pages__container.coloring-pages__container_two(style="background-color: #EAFFE9")
+            div.coloring-pages__blocks
+                h2.h36 Праздники
+                div.coloring-pages__block
+                    a.coloring-pages__text.pX Категории
+                    ul.coloring-pages__row
+                        li
+                            a.pX(href="#") Рождество
+                        li
+                            a.pX(href="#") Новый год
+                        li
+                            a.pX(href="#") Хэллоуин
+                        li
+                            a.pX(href="#") День святого Валентина
+                        li
+                            a.pX(href="#") Все
+
+            div.grid-container
+                each imageData in imagesData
+                    div.grid-container__group
+                        img(src=imageData.src, alt=imageData.text)
+                        p.p19=imageData.text
+            div.triangle.triangle__holidays
+            div.triangle.triangle__holidays-bottom
+
+
+        div.coloring-pages__container.coloring-pages__container_two(style="background-color: #F2F7FF")
+            div.coloring-pages__blocks
+                h2.h36 Интересы
+                div.coloring-pages__block
+                    a.coloring-pages__text.pX Категории
+                    ul.coloring-pages__row
+                        li
+                            a.pX(href="#") Динозавры
+                        li
+                            a.pX(href="#") Космос
+                        li
+                            a.pX(href="#") Машины
+                        li
+                            a.pX(href="#") Фэнтези
+                        li
+                            a.pX(href="#") Все
+
+            div.grid-container
+                each imageData in imagesData
+                    div.grid-container__group
+                        img(src=imageData.src, alt=imageData.text)
+                        p.p19=imageData.text
+            div.triangle.triangle__interests
+
+
+        div.coloring-pages__container.coloring-pages__container_two(style="background-color: white")
+            div.coloring-pages__blocks
+                h2.h36 Обучающие
+                div.coloring-pages__block
+                    a.coloring-pages__text.pX Категории
+                    ul.coloring-pages__row
+                        li
+                            a.pX(href="#") Алфавит
+                        li
+                            a.pX(href="#") Числа
+                        li
+                            a.pX(href="#") Формы
+                        li
+                            a.pX(href="#") География
+                        li
+                            a.pX(href="#") Все
+
+            div.grid-container
+                each imageData in imagesData
+                    div.grid-container__group
+                        img(src=imageData.src, alt=imageData.text)
+                        p.p19=imageData.text
+            div.categories__info.categories__info_active
+                p.p20 Добро пожаловать в мир волшебства и творчества с нашей коллекцией детских раскрасок! Здесь вы найдёте увлекательные изображения, которые подарят вашим малышам часы радости и веселья. Наши раскраски не только развлекут, но и разовьют моторику, воображение и цветовое восприятие вашего ребёнка.
+                p.p20 Почему детские раскраски так важны для развития вашего малыша? Это прекрасный способ улучшить мелкую моторику рук, координацию движений и развить творческие способности. Вместе с тем, раскрашивание изображений учит детей концентрации, терпению и вниманию к деталям.
+                p.p20 В нашей коллекции детских раскрасок вы найдете разнообразные темы: от животных и природы до сказочных персонажей и мультяшных героев. Мы постоянно обновляем нашу коллекцию, чтобы предложить вашим малышам новые впечатления и возможности для творчества.
+block script
+    script(type='text/javascript')
