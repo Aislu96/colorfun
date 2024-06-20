@@ -94,6 +94,13 @@ h1 {
   font-weight: $fontWeightRegular;
 }
 
+.p20x {
+  font-size: calc(15px + 5 * (100vw - 320px) / 1600);
+  line-height: clamp(19.5px, calc(1.5em + 0.3 * (100vw - 320px) / 1600), 26px);
+  font-weight: $fontWeightMedium;
+  color: $colorMainFont;
+}
+
 .h20 {
   font-size: calc(13px + 7 * (100vw - 320px) / 1600);
   line-height: clamp(18.29px, calc(1.5em + 0.3 * (100vw - 320px) / 1600), 24.38px);
@@ -375,6 +382,8 @@ img {
   &__small {
     width: 0;
     height: 0;
+    top: 4px;
+    position: relative;
     border-left: 15px solid transparent; /* Левая сторона треугольника */
     border-right: 15px solid transparent; /* Правая сторона треугольника */
     border-bottom: 30px solid #F6F2FF;
@@ -881,10 +890,9 @@ img {
 
     &.hovered {
       display: block;
-
-      a {
-        font-weight: $fontWeightMedium !important;
-      }
+    }
+    &:hover {
+      display: block;
     }
 
     & li {
@@ -894,6 +902,9 @@ img {
         cursor: pointer;
         border-radius: 12px;
         background-color: $coloringPagesFon;
+        & a {
+            font-weight: 500;
+        }
       }
     }
   }
@@ -1355,6 +1366,9 @@ img {
 
 /* film-info */
 .film-info {
+  span, a {
+    color: $colorMainFont;
+  }
   ol {
     list-style-type: none;
     counter-reset: my-counter;
@@ -1419,9 +1433,15 @@ img {
   }
 
   &__window {
-    @include flex-column;
+    display: none;
     justify-content: center;
     align-items: center;
+    position: absolute;
+    top: 32px;
+    left: -60px;
+    &.hovered {
+      @include flex-column;
+    }
   }
 
   &__list {
@@ -1472,6 +1492,10 @@ img {
     @include flex-row;
     gap: 20px;
 
+    &-group {
+      position: relative;
+    }
+
     & svg {
       width: 32px;
       height: 32px;
@@ -1492,7 +1516,9 @@ img {
     background-color: $coloringPagesFon;
     box-shadow: $boxShadow;
     border-radius: 20px;
-
+    &.hovered {
+      @include flex-row;
+    }
     & svg {
       width: 32px;
       height: 32px;
@@ -1526,9 +1552,18 @@ img {
       @include flex-column;
     }
 
+    &__img {
+      padding: 10px 5px;
+      flex-direction: column;
+    }
+
     &__group {
       gap: 10px;
       justify-content: space-between;
+    }
+
+    &__window {
+      left: -10px;
     }
 
     &__block {
@@ -1614,3 +1649,101 @@ img {
 }
 
 /* /film-info */
+
+
+.nested-list {
+  display: none;
+}
+
+.show {
+  display: block;
+}
+
+.toggle-list:hover {
+  cursor: pointer;
+}
+
+
+/* info */
+.info {
+  &__container {
+    padding: 0 16% 26px;
+    &h3 {
+      font-weight: $fontWeightMedium;
+    }
+    & p {
+      font-size: 16px;
+      font-weight: $fontWeightRegular;
+      line-height: 19.5px;
+    }
+  }
+  &__card {
+    @include flex-column;
+    gap: 16px;
+    &s{
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      grid-template-rows: auto auto;
+      gap: 10px;
+    }
+  }
+  &__movie-news {
+    margin-top: 90px;
+    margin-bottom: 102px;
+    @include flex-column;
+    gap: 20px;
+    & p{
+      text-align: center;
+      &:nth-child(2) {
+        color: $coloringViolet;
+      }
+    }
+    & img {
+      width: 32px;
+      height: 32px;
+    }
+  }
+  &__group {
+    @include flex-row;
+    align-items: center;
+    gap: 10px;
+  }
+  &__line {
+    border: 2px solid $coloringViolet;
+    height: 0;
+    width: 100%;
+  }
+}
+
+.item1 {
+  grid-column: 1 / 3; /* Занимает всю первую строку */
+}
+
+.item2 {
+  grid-column: 1 / 3; /* Занимает всю первую строку */
+}
+
+.item3 {
+  grid-column: 1; /* Занимает первый столбец второй строки */
+  grid-row: 2; /* Занимает вторую строку */
+}
+
+.item4 {
+  grid-column: 2; /* Занимает второй столбец второй строки */
+  grid-row: 2; /* Занимает вторую строку */
+}
+
+@media screen and (max-width: 700px){
+  .info {
+    &__container {
+      padding-right: 0;
+      padding-left: 0;
+    }
+    &__movie-news {
+      margin-top: 65px;
+      margin-bottom: 112px;
+
+    }
+  }
+}
+/* /info */

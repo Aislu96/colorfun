@@ -52,12 +52,21 @@ arr.pop(); // Удаляем последний элемент
 
 const headerRow = document.querySelectorAll('.header__row');
 
-// Перебираем оставшиеся элементы в arr
+//Перебираем оставшиеся элементы в arr
 arr.forEach((element, i) => {
-  element.addEventListener('click', function () {
-    headerRow[i].classList.toggle('hovered');
-    arrow[i].classList.toggle('arrow__img-two');
-  });
+  if (window.innerWidth <= 700) {
+    element.addEventListener('click', function () {
+      headerRow[i].classList.toggle('hovered');
+      arrow[i].classList.toggle('arrow__img-two');
+    });
+  } else {
+    element.addEventListener('mouseover', function () {
+      headerRow[i].classList.add('hovered');
+    });
+    element.addEventListener('mouseout', function () {
+      headerRow[i].classList.remove('hovered');
+    });
+  }
 });
 
 
@@ -134,3 +143,36 @@ popupNotFound.addEventListener('click', function () {
 });
 
 
+//При наведении на icon появляется окно
+const filmInfoIconGroup = document.querySelectorAll('.film-info__icon-group');
+const filmInfoWindow = document.querySelectorAll('.film-info__window');
+
+for (let i = 0; i < filmInfoIconGroup.length; i++) {
+  filmInfoIconGroup[i].addEventListener('mouseover', function () {
+    filmInfoWindow[i].classList.add('hovered');
+  });
+  filmInfoIconGroup[i].addEventListener('mouseout', function () {
+    filmInfoWindow[i].classList.remove('hovered');
+  });
+}
+
+
+// При наведении на ol открывается список
+document.addEventListener('DOMContentLoaded', function() {
+  const toggleLists = document.querySelectorAll('.toggle-list');
+
+  toggleLists.forEach(toggle => {
+    toggle.addEventListener('click', function() {
+      const nestedList = toggle.nextElementSibling;
+      nestedList.classList.toggle('show');
+    });
+
+    toggle.addEventListener('mouseover', function() {
+      toggle.style.color = '#5C25C5';
+    });
+
+    toggle.addEventListener('mouseout', function() {
+      toggle.style.color = '';
+    });
+  });
+});
