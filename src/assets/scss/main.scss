@@ -88,6 +88,13 @@ h1 {
   font-weight: $fontWeightRegular;
 }
 
+.p20a {
+  color: $colorMainFont;
+  font-size: calc(12px + 7 * (100vw - 320px) / 1600);
+  line-height: clamp(14.4px, calc(1.5em + 0.3 * (100vw - 320px) / 1600), 24px);
+  font-weight: $fontWeightMedium;
+}
+
 .p12 {
   font-size: calc(10px + 2 * (100vw - 320px) / 1600);
   line-height: clamp(12.19px, calc(1.5em + 0.3 * (100vw - 320px) / 1600), 14.63px);
@@ -105,6 +112,13 @@ h1 {
   font-size: calc(13px + 7 * (100vw - 320px) / 1600);
   line-height: clamp(18.29px, calc(1.5em + 0.3 * (100vw - 320px) / 1600), 24.38px);
   font-weight: $fontWeightMedium;
+}
+
+.h20x {
+  font-size: calc(12px + 8 * (100vw - 320px) / 1600);
+  line-height: clamp(14.63px, calc(1.5em + 0.3 * (100vw - 320px) / 1600), 24.38px);
+  font-weight: $fontWeightSemiBold;
+  color: $colorWhite;
 }
 
 .h19 {
@@ -891,6 +905,7 @@ img {
     &.hovered {
       display: block;
     }
+
     &:hover {
       display: block;
     }
@@ -902,8 +917,9 @@ img {
         cursor: pointer;
         border-radius: 12px;
         background-color: $coloringPagesFon;
+
         & a {
-            font-weight: 500;
+          font-weight: 500;
         }
       }
     }
@@ -1369,6 +1385,7 @@ img {
   span, a {
     color: $colorMainFont;
   }
+
   ol {
     list-style-type: none;
     counter-reset: my-counter;
@@ -1439,6 +1456,7 @@ img {
     position: absolute;
     top: 32px;
     left: -60px;
+
     &.hovered {
       @include flex-column;
     }
@@ -1516,9 +1534,11 @@ img {
     background-color: $coloringPagesFon;
     box-shadow: $boxShadow;
     border-radius: 20px;
+
     &.hovered {
       @include flex-row;
     }
+
     & svg {
       width: 32px;
       height: 32px;
@@ -1668,50 +1688,92 @@ img {
 .info {
   &__container {
     padding: 0 16% 26px;
-    &h3 {
+
+    & h3 {
       font-weight: $fontWeightMedium;
     }
-    & p {
-      font-size: 16px;
-      font-weight: $fontWeightRegular;
-      line-height: 19.5px;
-    }
   }
+
+  &__box {
+    margin-top: 80px;
+    background-color: $coloringViolet;
+    border-radius: 60px 0 60px 0;
+    box-shadow: $boxShadowTwo;
+    padding: 30px;
+    text-align: center;
+  }
+
   &__card {
     @include flex-column;
     gap: 16px;
-    &s{
+
+    &s {
       display: grid;
       grid-template-columns: 1fr 2fr;
       grid-template-rows: auto auto;
       gap: 10px;
     }
   }
+
   &__movie-news {
     margin-top: 90px;
     margin-bottom: 102px;
     @include flex-column;
     gap: 20px;
-    & p{
+
+    & p {
       text-align: center;
-      &:nth-child(2) {
-        color: $coloringViolet;
-      }
+
     }
+
     & img {
       width: 32px;
       height: 32px;
     }
   }
+
   &__group {
     @include flex-row;
     align-items: center;
     gap: 10px;
   }
+
   &__line {
     border: 2px solid $coloringViolet;
     height: 0;
     width: 100%;
+  }
+
+  &__film-budgets {
+    @include flex-column;
+    gap: 12px;
+  }
+
+  &__item {
+    @include flex-row;
+    gap: 20px;
+    justify-content: space-between;
+    padding-top: 20px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid $colorBorder;
+
+    & p {
+      width: 60%;
+    }
+
+    &:last-child {
+      border-bottom: none;
+    }
+
+    &:first-child {
+      border-bottom: 2px solid $coloringViolet;
+    }
+  }
+
+  &__block {
+    background-color: $coloringPagesFon;
+    padding: 10px 25px;
+    border-radius: 38px;
   }
 }
 
@@ -1733,17 +1795,100 @@ img {
   grid-row: 2; /* Занимает вторую строку */
 }
 
-@media screen and (max-width: 700px){
+@media screen and (max-width: 700px) {
   .info {
+    & h3 {
+      margin-left: 10px;
+    }
+
+    &__box {
+      margin-top: 60px;
+      padding: 8px 13px;
+      border-radius: 20px 0 20px 0;
+    }
+
     &__container {
       padding-right: 0;
       padding-left: 0;
     }
+
     &__movie-news {
       margin-top: 65px;
       margin-bottom: 112px;
+    }
 
+    &__block {
+      padding: 10px;
+    }
+
+    &__item {
+      gap: 8px;
+      padding-top: 10px;
+      padding-bottom: 12px;
     }
   }
 }
+
+
 /* /info */
+
+
+/* navigation */
+.navigation {
+  &__container {
+    padding: 24px 16% 49px;
+    gap: 24px;
+    @include flex-column;
+  }
+
+  &__group {
+    @include flex-row;
+    align-items: center;
+    gap: 12px;
+    & img {
+      width: 48px;
+      height: 48px;
+    }
+  }
+  &__row {
+    @include flex-row;
+    gap: 16px;
+
+    & a {
+      padding: 8px 12px;
+      @include borderGroup(16px, 1px, $coloringViolet);
+
+      &:hover {
+        box-shadow: $boxShadow;
+        cursor: pointer;
+        background-color: $coloringViolet;
+        color: $coloringPagesFon;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .navigation {
+    &__container {
+      padding: 30px 10px;
+
+    }
+
+    &__group {
+      & img {
+        width: 32px;
+        height: 32px;
+      }
+    }
+    &__row {
+      gap: 4px;
+      flex-wrap: wrap;
+      & li {
+        margin-top: 15px;
+      }
+    }
+  }
+}
+
+/* /navigation */
