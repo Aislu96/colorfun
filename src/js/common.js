@@ -176,3 +176,16 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
 });
+
+
+// при наведении на arrow в блоке questions открывается элемент аккардеон
+const accordion = document.querySelectorAll('.questions');
+const accordionArrow = document.querySelectorAll('.questions svg');
+const questionText = document.querySelectorAll('.film-info__container_two p');
+console.log(questionText);
+for(let i = 0; i < accordion.length; i++) {
+  accordion[i].addEventListener('click', function() {
+    questionText[i].classList.toggle('questions__text');
+    accordionArrow[i].classList.toggle('questions__svg');
+  });
+}

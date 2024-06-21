@@ -31,12 +31,34 @@ h1 {
   line-height: clamp(24.2px, calc(1.5em + 0.3 * (100vw - 320px) / 1600), 58.51px);
   font-weight: $fontWeightBold;
 }
+h2 {
+  text-transform: uppercase;
+  color: $coloringViolet;
+  font-size: calc(22px + 18 * (100vw - 320px) / 1600);
+  line-height: clamp(23px, calc(1.5em + 0.3 * (100vw - 320px) / 1600), 48.76px);
+  font-weight: $fontWeightBold;
+}
+h3 {
+  text-transform: uppercase;
+  color: $coloringViolet;
+  font-size: calc(21px + 11 * (100vw - 320px) / 1600);
+  line-height: clamp(22.2px, calc(1.5em + 0.3 * (100vw - 320px) / 1600), 39.01px);
+  font-weight: $fontWeightBold;
+}
+
 
 .h24 {
   text-transform: uppercase;
   color: $coloringViolet;
   font-size: calc(20px + 4 * (100vw - 320px) / 1600);
-  line-height: clamp(24.38px, calc(1.5em + 0.3 * (100vw - 320px) / 1600), 29.26px);
+  line-height: clamp(21px, calc(1.5em + 0.3 * (100vw - 320px) / 1600), 29.26px);
+  font-weight: $fontWeightBold;
+}
+h5 {
+  text-transform: uppercase;
+  color: $coloringViolet;
+  font-size: calc(15 + 1 * (100vw - 320px) / 1600);
+  line-height: clamp(17.5px, calc(1.5em + 0.3 * (100vw - 320px) / 1600), 19.5px);
   font-weight: $fontWeightBold;
 }
 
@@ -421,7 +443,17 @@ img {
     border-right: 40vw solid transparent;
     border-top: 30px solid white;
   }
+  &__questions {
+    position: absolute;
+    top: 0;
+    right: calc(30% - 50vw);
+    width: 0;
+    height: 0;
+    border-left: 30vw solid transparent;
+    border-right: 40vw solid transparent;
+    border-top: 30px solid white;
 
+  }
   &__holidays {
     position: absolute;
     top: 0;
@@ -429,8 +461,8 @@ img {
     width: 0;
     height: 0;
     border-left: 30vw solid transparent;
-    border-right: 40vw solid transparent;
-    border-top: 30px solid white;
+    border-right: 49vw solid transparent;
+    border-top: 62px solid white;
 
     &-bottom {
       left: calc(30% - 50vw);
@@ -1456,6 +1488,9 @@ img {
     position: absolute;
     top: 32px;
     left: -60px;
+    &_article {
+      left: -123px;
+    }
 
     &.hovered {
       @include flex-column;
@@ -1504,6 +1539,11 @@ img {
     @include flex-column;
     gap: 20px;
     margin-bottom: 60px;
+  }
+  &__title {
+    @include flex-column;
+    gap: 50px;
+    margin-bottom: 73px;
   }
 
   &__icon {
@@ -1655,6 +1695,10 @@ img {
       ul li li:before {
         margin-left: 12px;
       }
+    }
+    &__title {
+      gap: 20px;
+      margin-bottom: 50px;
     }
   }
 }
@@ -1845,11 +1889,13 @@ img {
     @include flex-row;
     align-items: center;
     gap: 12px;
+
     & img {
       width: 48px;
       height: 48px;
     }
   }
+
   &__row {
     @include flex-row;
     gap: 16px;
@@ -1881,9 +1927,11 @@ img {
         height: 32px;
       }
     }
+
     &__row {
       gap: 4px;
       flex-wrap: wrap;
+
       & li {
         margin-top: 15px;
       }
@@ -1892,3 +1940,74 @@ img {
 }
 
 /* /navigation */
+.film-info {
+  &__container_two {
+    overflow: hidden;
+    position: relative;
+    background-color: $colorHeaderFon;
+    padding: 173px 16% 185px;
+  }
+
+  &__two ol li {
+    position: relative;
+    padding: 16px 64px 16px 20px;
+    background-color: $colorWhite;
+    border-radius: 40px;
+    & svg {
+      width: 21px;
+      height: 11px;
+      position: absolute;
+      top: 23px;
+      right: 24px;
+      transform: rotate(180deg);
+    }
+    & p {
+      display: none;
+      padding-left: 28px;
+      margin-top: 16px;
+      color: $colorBlack;
+    }
+  }
+}
+
+
+@media screen and (max-width: 700px) {
+  .film-info {
+    &__container_two {
+      position: relative;
+      padding: 102px 18px;
+    }
+    &__two ol li {
+      padding: 12px 46px 12px 12px;
+      border-radius: 0;
+
+      & p {
+        padding-left: 0;
+        margin-top: 4px;
+        color: $colorBlack;
+      }
+
+      & svg {
+        width: 18px;
+        height: 9px;
+        top: 22px;
+        right: 22px;
+      }
+    }
+  }
+}
+
+
+.questions {
+  display: inline;
+  &:hover {
+    cursor: pointer;
+    opacity: 0.8;
+  }
+  &__text {
+    display: block !important;
+  }
+  &__svg {
+    transform: rotate(0deg) !important;
+  }
+}
