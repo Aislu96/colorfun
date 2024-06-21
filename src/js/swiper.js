@@ -23,3 +23,19 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 });
+
+
+
+document.addEventListener('DOMContentLoaded', function () {
+  console.log('a');
+    new Swiper(".swiper", {
+      modules: [Pagination, Scrollbar],
+      loop: true,
+      slidesPerView: "auto",
+      spaceBetween: 30,
+      pagination: {
+        el: '.pagination',
+        clickable: true,
+      }
+    });
+});
