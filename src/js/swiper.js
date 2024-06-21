@@ -4,7 +4,7 @@ import { Pagination, Scrollbar, Thumbs } from "swiper/modules";
 
 document.addEventListener('DOMContentLoaded', function () {
   if (window.innerWidth <= 800) {
-    new Swiper(".swiper-container__article", {
+    new Swiper(".swiper-info", {
       modules: [Pagination, Scrollbar],
       loop: true,
       slidesPerView: "auto",

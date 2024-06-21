@@ -1037,6 +1037,11 @@ img {
       padding-left: 10%;
       padding-right: 10%;
     }
+
+    &__nav {
+      padding-left: 13%;
+      padding-right: 13%;
+    }
   }
 }
 
@@ -1902,6 +1907,7 @@ img {
     &__icon-img {
       width: 30px;
       height: 30px;
+
       & svg {
         width: 20px;
         height: 20px;
@@ -2170,3 +2176,103 @@ img {
     display: none;
   }
 }
+
+
+/* form */
+.form {
+  &__container {
+    padding: 100px 16%;
+  }
+
+  &__wrapper {
+    @include flex-column;
+    gap: 39px;
+    padding: 50px 64px;
+    background-color: $coloringPagesFon;
+    width: 50%;
+    margin: 0 auto;
+    border-radius: 20px;
+  }
+
+  &__item {
+    overflow: hidden;
+    @include flex-column;
+    gap: 20px;
+    width: 100%;
+
+    input {
+      border-radius: 20px;
+      padding: 20px;
+    }
+  }
+
+  &__button {
+
+  }
+
+  &__checkbox {
+    margin-top: 41px;
+    margin-bottom: 41px;
+    @include flex-row;
+    gap: 39px;
+
+    & a {
+      text-decoration: underline;
+    }
+  }
+}
+
+@media screen and (max-width: 1400px) {
+  .form {
+    &__container {
+      padding: 50px 50px;
+    }
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .form {
+
+    &__wrapper {
+      gap: 20px;
+      width: 60%;
+      padding: 50px 50px;
+    }
+
+    &__checkbox {
+      margin-top: 21px;
+      margin-bottom: 21px;
+    }
+  }
+}
+@media screen and (max-width: 800px) {
+  .form {
+    &__wrapper {
+      width: 100%;
+    }
+  }
+}
+
+@media screen and (max-width: 600px){
+  .form {
+    &__wrapper {
+      padding: 25px;
+      gap: 15px;
+    }
+
+    &__checkbox {
+      gap: 20px;
+      margin-top: 11px;
+      margin-bottom: 11px;
+    }
+
+    &__item {
+      gap: 15px;
+    }
+  }
+
+}
+
+/* /form */
+
+

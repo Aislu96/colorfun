@@ -4,3 +4,4 @@ import "./js/savePicture.js";
 import "./assets/css/main.css";
 import "./assets/scss/main.scss";
 import "./js/swiper";
+import "./js/telephone.js";

@@ -45,7 +45,9 @@ if(buttonCartoons) {
 
 window.addEventListener('resize', () => {
   cartoonsShown = 0;
-  cartoonsContainer.innerHTML = '';
+  if(cartoonsContainer) {
+    cartoonsContainer.innerHTML = '';
+  }
   showMoreCards();
 });
 
