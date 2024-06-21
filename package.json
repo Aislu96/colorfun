@@ -80,6 +80,7 @@
     "webpack-merge": "^4.2.2"
   },
   "dependencies": {
-    "swiper": "^11.1.4"
+    "swiper": "^11.1.4",
+    "parcel-bundler": "^1.6.1"
   }
 }

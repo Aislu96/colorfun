@@ -25,22 +25,23 @@ function showMoreCards() {
     let textElement = document.createElement('p');
     textElement.classList.add('p19');
     textElement.textContent = cartoons[i].text;
-
+    if(!cartoonsContainer ) return;
     newContainer.appendChild(imgElement);
     newContainer.appendChild(textElement);
     cartoonsContainer.appendChild(newContainer);
   }
   cartoonsShown += cardsToAdd;
 
-  if (cartoonsShown >= cartoons.length) {
+  if (cartoonsShown >= cartoons.length && buttonCartoons) {
     buttonCartoons.style.display = 'none';
   }
 }
 
 showMoreCards();
 
-
-buttonCartoons.addEventListener('click', showMoreCards);
+if(buttonCartoons) {
+  buttonCartoons.addEventListener('click', showMoreCards);
+}
 
 window.addEventListener('resize', () => {
   cartoonsShown = 0;
