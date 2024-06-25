@@ -32,14 +32,16 @@ upArrow.addEventListener('touched', () => {
 
 
 //При наведении на поиск, появляется эффект
-headerContainer.addEventListener('mouseover', function () {
-  searchButton.classList.add('hovered');
-  searchButtonSound.classList.add('hovered');
-});
-headerContainer.addEventListener('mouseout', function () {
-  searchButton.classList.remove('hovered');
-  searchButtonSound.classList.remove('hovered');
-});
+if (headerContainer) {
+  headerContainer.addEventListener('mouseover', function () {
+    searchButton.classList.add('hovered');
+    searchButtonSound.classList.add('hovered');
+  });
+  headerContainer.addEventListener('mouseout', function () {
+    searchButton.classList.remove('hovered');
+    searchButtonSound.classList.remove('hovered');
+  });
+}
 
 
 // При наведении на кнопку блок в шапке профиля, появляется блок
@@ -71,8 +73,11 @@ arr.forEach((element, i) => {
 
 
 //открытие бургер меню
-buttonMenuBurger.addEventListener('click', toggleButtonMenu);
-buttonMenuCross.addEventListener('click', toggleButtonCross);
+if(buttonMenuBurger) {
+  buttonMenuBurger.addEventListener('click', toggleButtonMenu);
+  buttonMenuCross.addEventListener('click', toggleButtonCross);
+}
+
 
 function toggleButtonMenu(e) {
   e.preventDefault();
@@ -93,15 +98,17 @@ function toggleButtonCross(e) {
 const input = document.getElementById('myInput');
 const popup = document.querySelector('.popup');
 const popupBlock = document.querySelector('.popup__block');
-input.addEventListener('input', function () {
-  const inputValue = input.value.trim(); // Получаем значение и обрезаем лишние пробелы
+if(input) {
+  input.addEventListener('input', function () {
+    const inputValue = input.value.trim(); // Получаем значение и обрезаем лишние пробелы
 
-  if (inputValue !== '') {
-    openPopup();
-  } else {
-    closePopup();
-  }
-});
+    if (inputValue !== '') {
+      openPopup();
+    } else {
+      closePopup();
+    }
+  });
+}
 
 
 function openPopup() {
@@ -134,13 +141,17 @@ for (let i = 0; i < coloringPagesText.length; i++) {
 //клик по по overlay и крестику popup
 const popupCross = document.querySelector('.popup__cross');
 const popupNotFound = document.querySelector('.popup__not-found');
-popupCross.addEventListener('click', function () {
-  popupNotFound.classList.remove('popup__not-found_opened');
-});
+if(popupCross) {
+  popupCross.addEventListener('click', function () {
+    popupNotFound.classList.remove('popup__not-found_opened');
+  });
+}
 
-popupNotFound.addEventListener('click', function () {
-  popupNotFound.classList.remove('popup__not-found_opened');
-});
+if(popupNotFound) {
+  popupNotFound.addEventListener('click', function () {
+    popupNotFound.classList.remove('popup__not-found_opened');
+  });
+}
 
 
 //При наведении на icon появляется окно
@@ -158,20 +169,20 @@ for (let i = 0; i < filmInfoIconGroup.length; i++) {
 
 
 // При наведении на ol открывается список
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
   const toggleLists = document.querySelectorAll('.toggle-list');
 
   toggleLists.forEach(toggle => {
-    toggle.addEventListener('click', function() {
+    toggle.addEventListener('click', function () {
       const nestedList = toggle.nextElementSibling;
       nestedList.classList.toggle('show');
     });
 
-    toggle.addEventListener('mouseover', function() {
+    toggle.addEventListener('mouseover', function () {
       toggle.style.color = '#5C25C5';
     });
 
-    toggle.addEventListener('mouseout', function() {
+    toggle.addEventListener('mouseout', function () {
       toggle.style.color = '';
     });
   });
@@ -182,8 +193,8 @@ document.addEventListener('DOMContentLoaded', function() {
 const accordion = document.querySelectorAll('.questions');
 const accordionArrow = document.querySelectorAll('.questions svg');
 const questionText = document.querySelectorAll('.film-info__container_two p');
-for(let i = 0; i < accordion.length; i++) {
-  accordion[i].addEventListener('click', function() {
+for (let i = 0; i < accordion.length; i++) {
+  accordion[i].addEventListener('click', function () {
     questionText[i].classList.toggle('questions__text');
     accordionArrow[i].classList.toggle('questions__svg');
   });

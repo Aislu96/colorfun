@@ -4,6 +4,7 @@
 @import "utils/_reset";
 @import "utils/_normalize";
 @import "utils/_functions";
+@import "utils/telephone.scss";
 
 .index-page {
   background-color: $colorWhite;
@@ -2181,6 +2182,8 @@ img {
 /* form */
 .form {
   &__container {
+    position: relative;
+    background-color: $coloringPagesFon;
     padding: 100px 16%;
   }
 
@@ -2188,7 +2191,6 @@ img {
     @include flex-column;
     gap: 39px;
     padding: 50px 64px;
-    background-color: $coloringPagesFon;
     width: 50%;
     margin: 0 auto;
     border-radius: 20px;
@@ -2247,6 +2249,11 @@ img {
 }
 @media screen and (max-width: 800px) {
   .form {
+    &__container {
+      padding-left: 16px;
+      padding-right: 16px;
+    }
+
     &__wrapper {
       width: 100%;
     }
