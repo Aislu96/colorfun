@@ -546,6 +546,9 @@ img {
   background-color: $coloringViolet;
   @include flex-center;
   padding: 0;
+  a {
+    color: $colorWhite;
+  }
 
   &__not-found {
     width: 240px;
@@ -556,6 +559,9 @@ img {
     background-color: $colorWhite;
     color: $colorFontCategories;
     @include border(1px, $coloringViolet);
+    a {
+      color: $colorFontCategories;
+    }
   }
 }
 
