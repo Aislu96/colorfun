@@ -1,0 +1,66 @@
+extends ../layout/base
+
+block variables
+    //подключаем основу для страницы и выводим в нее данные
+    - var title='COLORFUN';
+    - var description='COLORFUN';
+    - var pageClass='index-page';
+    - var imagesData = require('../../js/imagesData.json');
+    - var articles = require('../../js/articles.json');
+    - var categoriesHolidays = require('../../js/categoriesHolidays.json');
+    - var categoriesChildren = require('../../js/categoriesChildren.json');
+
+block content
+    button.up-arrow
+
+    section.coloring-pages
+        div.coloring-pages__container
+            h1 Популярные и новые раскраски
+            div.grid-container
+                each imageData in imagesData
+                    div.grid-container__group
+                        img(src=imageData.src, alt=imageData.text)
+                        p.p19=imageData.text
+            div.triangle.triangle__one
+
+    section.articles
+        div.articles__container
+            h1 Популярные и новые статьи
+            div.swiper-info.swiper-container
+                div.swiper-wrapper.grid-container.grid-container__articles
+                    each article in articles
+
+                        div.grid-container__group-articles.swiper-slide
+                            button.button.button__arrow
+                                div
+                            img(src=article.src, alt=article.title)
+                            div.grid-container__block
+                                h4.h20=article.title
+                                p.p17=article.text
+            div.pagination
+            button.button.b1 Перейти в блог
+
+
+    section.categories
+        div.categories__container
+            h1 Популярные рубрики
+            div.categories__block
+                h2.h36 Для детей
+                div.categories__groups
+                    each categories in categoriesChildren
+                        div.categories__group
+                            h3.p19=categories.text
+                            img(src=categories.src, alt=categories.text)
+            div.categories__block
+                h2.h36 Природа
+                div.categories__groups
+                    each categories in categoriesHolidays
+                        div.categories__group
+                            h3.p19=categories.text
+                            img(src=categories.src, alt=categories.text)
+            div.categories__info
+                p.p20 Добро пожаловать в мир волшебства и творчества с нашей коллекцией детских раскрасок! Здесь вы найдёте увлекательные изображения, которые подарят вашим малышам часы радости и веселья. Наши раскраски не только развлекут, но и разовьют моторику, воображение и цветовое восприятие вашего ребёнка.
+                p.p20 Почему детские раскраски так важны для развития вашего малыша? Это прекрасный способ улучшить мелкую моторику рук, координацию движений и развить творческие способности. Вместе с тем, раскрашивание изображений учит детей концентрации, терпению и вниманию к деталям.
+                p.p20 В нашей коллекции детских раскрасок вы найдете разнообразные темы: от животных и природы до сказочных персонажей и мультяшных героев. Мы постоянно обновляем нашу коллекцию, чтобы предложить вашим малышам новые впечатления и возможности для творчества.
+block script
+    script(type='text/javascript')

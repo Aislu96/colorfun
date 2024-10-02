@@ -1,0 +1,18 @@
+[
+  {
+    "src": "assets/img/categories/christmas.png",
+    "text": "Рождество"
+  },
+  {
+    "src": "assets/img/categories/newHear.png",
+    "text": "Новый год"
+  },
+  {
+    "src": "assets/img/categories/halloween.png",
+    "text": "Хэллоуин"
+  },
+  {
+    "src": "assets/img/categories/valentine'sDay.png",
+    "text": "День святого Валентина"
+  }
+]
